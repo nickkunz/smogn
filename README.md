@@ -1,4 +1,4 @@
-# SMOGN: Synthetic Minority Over-Sampling with Gaussian Noise
+# Synthetic Minority Over-Sampling with Gaussian Noise
 [![PyPI version](https://badge.fury.io/py/smogn.svg)](https://badge.fury.io/py/smog)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Build Status](https://travis-ci.com/nickkunz/smogn.svg?branch=master)](https://travis-ci.com/nickkunz/smogn)

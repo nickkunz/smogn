@@ -1,0 +1,37 @@
+SMOGN-0.0.0: 2019-08-01
+==========================
+- Research & Literature Review
+- Author Contact
+- Pre-Development & Planning
+
+SMOGN-0.0.0: 2019-09-01
+==========================
+- Core Python Development
+- Lots of Debugging
+
+SMOGN-0.0.0: 2019-10-01
+==========================
+- Core Python Development
+- Lots of Debugging
+- C and Fortran 90 Function Translation
+
+SMOGN-0.0.1: 2019-11-15
+==========================
+- Base Code Completion
+- Code Comments
+- Initial Testing
+- Beta Versioning
+
+SMOGN-0.0.1: 2019-11-16
+==========================
+- Documentation & DocStrings
+- GPLv3 License Declaration
+- First Git commit
+- PyPi distribution
+
+SMOGN-0.0.1: 2019-11-19
+==========================
+- Include sample data
+- Add usage example
+- Add logo
+- Unit testing in progress

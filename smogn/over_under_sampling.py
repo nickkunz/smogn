@@ -1,5 +1,5 @@
 ## synthetic minority over-sampling technique for regression with gaussian noise 
-def smogn(
+def over_under_sampling(
     
     ## main arguments / inputs
     data,                     ## training set  (pandas dataframe)
@@ -210,8 +210,8 @@ def smogn(
         if s_perc[i] > 1:
             
             ## generate synthetic observations
-            ## (see 'synth_gen()' function for details)
-            synth_obs = synth_gen(
+            ## (see 'over_sampling()' function for details)
+            synth_obs = over_sampling(
                 data = data,
                 index = list(b_index[i].index),
                 perc = s_perc[i],

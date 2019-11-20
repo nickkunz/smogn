@@ -29,9 +29,14 @@ SMOGN-0.0.1: 2019-11-16
 - First Git commit
 - PyPi distribution
 
-SMOGN-0.0.1: 2019-11-19
+SMOGN-0.0.2: 2019-11-19
 ==========================
 - Include sample data
 - Add usage example
 - Add logo
 - Unit testing in progress
+
+SMOGN-0.0.3: 2019-11-20
+==========================
+- Global changes to naming conventions
+- Major bug fix to modules not calling

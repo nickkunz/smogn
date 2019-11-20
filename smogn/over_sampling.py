@@ -1,5 +1,5 @@
 ## generate synthetic observations
-def synth_gen(
+def over_sampling(
     
     ## arguments / inputs
     data,       ## training set

@@ -39,4 +39,8 @@ SMOGN-0.0.2: 2019-11-19
 SMOGN-0.0.3: 2019-11-20
 ==========================
 - Global changes to naming conventions
-- Major bug fix to modules not calling
+- Major bug fix to modules
+
+SMOGN-0.0.4: 2019-11-23
+==========================
+- Import all modules

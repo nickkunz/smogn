@@ -1,5 +1,5 @@
 ## synthetic minority over-sampling technique for regression with gaussian noise 
-def smogn(
+def smoter(
     
     ## main arguments / inputs
     data,                     ## training set  (pandas dataframe)

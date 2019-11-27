@@ -78,6 +78,13 @@ def smoter(
     # import pandas as pd
     # import random as rd
     # import bisect as bs
+    from smogn.phi_ctrl_pts import phi_ctrl_pts
+    from smogn.phi_ctrl_pts import phi_extremes
+    from smogn.phi_ctrl_pts import phi_range
+    from smogn.phi import phi
+    from smogn.phi import phi_init
+    from smogn.phi import pchip_slope_mono_fc
+    from smogn.phi import pchip_val
     
     ## pre-process missing values
     if bool(drop_na_col) == True:

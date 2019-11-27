@@ -58,11 +58,11 @@ def phi_ctrl_pts(
     
     ## conduct 'extremes' method (default)
     if method == "auto":
-        phi_params = phi_extremes(y, xtrm_type, coef, ctrl_pts)
+        phi_params = smogn.phi_extremes(y, xtrm_type, coef, ctrl_pts)
     
     ## conduct 'range' method
     if method == "manual":
-        phi_params = phi_range(y, xtrm_type, coef, ctrl_pts)
+        phi_params = smogn.phi_range(y, xtrm_type, coef, ctrl_pts)
     
     ## return phi relevance parameters dictionary
     return phi_params

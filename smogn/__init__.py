@@ -4,7 +4,7 @@ Synthetic Minority Over-Sampling Technique for Regression with Gaussian Noise
 https://github.com/nickkunz/smogn
 """
 
-from box_plot_stats import box_plot_stats
+from smogn.box_plot_stats import box_plot_stats
 from dist_metrics import euclidean_dist
 from dist_metrics import heom_dist
 from dist_metrics import overlap_dist

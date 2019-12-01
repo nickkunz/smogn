@@ -1,4 +1,6 @@
-![SMOGN Thumbnail](https://github.com/nickkunz/smogn/blob/master/media/images/smogn_logo.png?style=centerme)
+<div align="center">
+  <img src="https://github.com/nickkunz/smogn/blob/master/media/images/smogn_logo.png">
+</div>
 
 
 ## Synthetic Minority Over-Sampling Technique for Regression with Gaussian Noise

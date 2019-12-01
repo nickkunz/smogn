@@ -50,7 +50,7 @@ def phi(
     y = y.reset_index(drop = True)
     
     ## initialize phi relevance function
-    y_phi = smogn.phi_init(y, n, num_pts, ctrl_pts)
+    y_phi = phi_init(y, n, num_pts, ctrl_pts)
     
     ## return phi values
     return y_phi
@@ -77,7 +77,7 @@ def phi_init(y, n, num_pts, ctrl_pts):
         delta.append((y_rel[i + 1] - y_rel[i]) / h[i])
     
     ## conduct monotone piecewise cubic interpolation
-    m_adj = smogn.pchip_slope_mono_fc(m, delta, num_pts)
+    m_adj = pchip_slope_mono_fc(m, delta, num_pts)
     
     ## assign variables for 'pchip_val()'
     a = y_rel
@@ -95,7 +95,7 @@ def phi_init(y, n, num_pts, ctrl_pts):
     y_phi = [None] * n
     
     for i in range(n):
-        y_phi[i] = smogn.pchip_val(y[i], x, a, b, c, d, num_pts)
+        y_phi[i] = pchip_val(y[i], x, a, b, c, d, num_pts)
     
     ## return phi values to the higher function 'phi()'
     return y_phi

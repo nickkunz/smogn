@@ -207,7 +207,7 @@ def over_sampling(
     max_dist = [None] * n
     
     for i in range(n):
-        max_dist[i] = smogn.box_plot_stats(dist_matrix[i])["stats"][2] / 2
+        max_dist[i] = box_plot_stats(dist_matrix[i])["stats"][2] / 2
     
     ## number of new synthetic observations for each rare observation
     x_synth = int(perc - 1)

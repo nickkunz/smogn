@@ -131,7 +131,7 @@ def smoter(
     ## -------------------------------- phi --------------------------------- ##
     ## calculate parameters for phi relevance function
     ## (see 'phi_ctrl_pts()' function for details)
-    phi_params = smogn.phi_ctrl_pts(
+    phi_params = phi_ctrl_pts(
         
         y = y_sort,                ## y (ascending)
         method = rel_method,       ## defaults "auto" 
@@ -141,7 +141,7 @@ def smoter(
     
     ## calculate the phi relevance function
     ## (see 'phi()' function for details)
-    y_phi = smogn.phi(
+    y_phi = phi(
         
         y = y_sort,                ## y (ascending)
         ctrl_pts = phi_params      ## from 'phi_ctrl_pts()'
@@ -211,7 +211,7 @@ def smoter(
             
             ## generate synthetic observations
             ## (see 'over_sampling()' function for details)
-            synth_obs = smogn.over_sampling(
+            synth_obs = over_sampling(
                 data = data,
                 index = list(b_index[i].index),
                 perc = s_perc[i],

@@ -1,3 +1,6 @@
+## load dependency
+import numpy as np
+
 ## euclidean distance calculation
 def euclidean_dist(a, b, d):
     
@@ -5,9 +8,6 @@ def euclidean_dist(a, b, d):
     calculates the euclidean distance between observations for data 
     containing only numeric / continuous features, returns float value
     """
-    
-    ## load dependency
-    # import numpy as np
     
     ## create list to store distances
     dist = [None] * d

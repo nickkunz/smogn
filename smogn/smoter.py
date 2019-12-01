@@ -1,3 +1,11 @@
+## load dependencies
+import numpy as np
+import pandas as pd
+
+from smogn.phi import phi
+from smogn.phi_ctrl_pts import phi_ctrl_pts
+from smogn.over_sampling import over_sampling
+
 ## synthetic minority over-sampling technique for regression with gaussian noise 
 def smoter(
     
@@ -72,12 +80,6 @@ def smoter(
     Proceedings of Machine Learning Research, 74:36-50.
     http://proceedings.mlr.press/v74/branco17a/branco17a.pdf.
     """
-    
-    ## load dependencies
-    import numpy as np
-    import pandas as pd
-    import random as rd
-    import bisect as bs
     
     ## pre-process missing values
     if bool(drop_na_col) == True:

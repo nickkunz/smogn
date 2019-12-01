@@ -1,3 +1,11 @@
+## load dependencies
+import numpy as np
+import pandas as pd
+import random as rd
+
+from smogn.box_plot_stats import box_plot_stats
+from smogn.dist_metrics import euclidean_dist, heom_dist, overlap_dist
+
 ## generate synthetic observations
 def over_sampling(
     
@@ -55,11 +63,6 @@ def over_sampling(
     Package 'UBL'. The Comprehensive R Archive Network (CRAN).
     https://cran.r-project.org/web/packages/UBL/UBL.pdf.
     """
-    
-    ## load dependencies
-    # import numpy as np
-    # import pandas as pd
-    # import random as rd
     
     ## subset original dataframe by bump classification index
     data = data.iloc[index]

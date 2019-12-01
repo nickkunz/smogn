@@ -1,3 +1,6 @@
+## load dependencies
+import numpy as np
+
 ## calculate box plot statistics
 def box_plot_stats(
     
@@ -39,9 +42,6 @@ def box_plot_stats(
     Chambers, J.M., Cleveland, W.S., Kleiner, B. and Tukey, P.A. (1983). 
     Graphical Methods for Data Analysis. Wadsworth & Brooks/Cole.
     """
-    
-    ## load dependency
-    # import numpy as np
     
     ## convert input to numpy array
     x = np.array(x)

@@ -1,3 +1,6 @@
+## load dependencies
+import numpy as np
+
 ## calculate parameters for phi relevance function
 def phi_ctrl_pts(
     
@@ -137,9 +140,6 @@ def phi_range(y, xtrm_type, coef, ctrl_pts):
     [30, 0, 0],
     [55, 1, 0]
     """
-    
-    ## load dependencies
-    # import numpy as np
     
     ## convert 'ctrl_pts' to numpy 2d array (matrix)
     ctrl_pts = np.array(ctrl_pts)

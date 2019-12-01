@@ -1,3 +1,6 @@
+## load dependency
+import bisect as bs
+    
 ## calculate the phi relevance function
 def phi(
     
@@ -140,9 +143,6 @@ def pchip_slope_mono_fc(m, delta, num_pts):
 
 ## calculate phi values based on monotone piecewise cubic interpolation
 def pchip_val(y, x, a, b, c, d, num_pts):
-    
-    ## load dependency
-    # import bisect as bs
     
     ## find interval that contains or is nearest to y
     i = bs.bisect(

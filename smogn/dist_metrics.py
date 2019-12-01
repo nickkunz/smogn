@@ -83,7 +83,7 @@ def heom_dist(a_num, b_num, d_num, ranges_num, a_nom, b_nom, d_nom):
     ## sum all the squared differences and take the square root
     dist = np.sqrt(sum(dist))
     
-    ## return distance
+    ## return distance list
     return dist
 
 ## hamming distance calculation
@@ -113,5 +113,5 @@ def overlap_dist(a, b, d):
     ## sum all the differences   
     dist = sum(dist)
     
-    ## return distance
+    ## return distance list
     return dist

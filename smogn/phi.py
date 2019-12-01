@@ -44,8 +44,8 @@ def phi(
     """
     
     ## assign variables
-    y = y                                ## reponse variable y
-    n = len(y)                           ## number of points in y
+    y = y                            ## reponse variable y
+    n = len(y)                       ## number of points in y
     num_pts = ctrl_pts["num_pts"]    ## number of control points
     ctrl_pts = ctrl_pts["ctrl_pts"]  ## control points
     

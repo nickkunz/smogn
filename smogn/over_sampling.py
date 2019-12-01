@@ -451,7 +451,7 @@ def over_sampling(
     
     ## convert negative values to zero in non-negative features
     for j in feat_non_neg:
-        data_new.iloc[data_new.iloc[:, j] < 0] = 0
+        data_new.iloc[:, j][data_new.iloc[:, j] < 0] = 0
     
     ## return over-sampling results dataframe
     return data_new

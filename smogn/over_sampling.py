@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 import random as rd
 
-## load dependency - internal
+## load dependencies - internal
 from smogn.box_plot_stats import box_plot_stats
 from smogn.dist_metrics import euclidean_dist, heom_dist, overlap_dist
 
@@ -451,7 +451,8 @@ def over_sampling(
     
     ## convert negative values to zero in non-negative features
     for j in feat_non_neg:
-        data_new.iloc[:, j][data_new.iloc[:, j] < 0] = 0
+        # data_new.iloc[:, j][data_new.iloc[:, j] < 0] = 0
+        data_new.iloc[:, j] = data_new.iloc[:, j].clip(lower = 0)
     
     ## return over-sampling results dataframe
     return data_new

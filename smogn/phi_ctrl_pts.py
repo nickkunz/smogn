@@ -1,5 +1,8 @@
-## load dependencies
+## load dependency - third party
 import numpy as np
+
+## load dependency - internal
+from smogn.box_plot_stats import box_plot_stats
 
 ## calculate parameters for phi relevance function
 def phi_ctrl_pts(

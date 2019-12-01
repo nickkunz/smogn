@@ -1,4 +1,4 @@
-## load dependency
+## load dependency - third party
 import numpy as np
 
 ## euclidean distance calculation

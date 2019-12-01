@@ -47,4 +47,9 @@ SMOGN-0.0.4: 2019-11-23
 
 SMOGN-0.0.5: 2019-11-26
 ==========================
-- Import all modules fix
+- Import all modules fixes
+
+SMOGN-0.0.6: 2019-11-30
+==========================
+- Import all modules final fixes
+- 

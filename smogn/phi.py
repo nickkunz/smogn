@@ -1,4 +1,4 @@
-## load dependency
+## load dependency - third party
 import bisect as bs
     
 ## calculate the phi relevance function

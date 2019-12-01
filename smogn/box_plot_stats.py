@@ -1,4 +1,4 @@
-## load dependencies
+## load dependency - third party
 import numpy as np
 
 ## calculate box plot statistics

@@ -1,7 +1,8 @@
-## load dependencies
+## load dependencies - third party
 import numpy as np
 import pandas as pd
 
+## load dependencies - internal
 from smogn.phi import phi
 from smogn.phi_ctrl_pts import phi_ctrl_pts
 from smogn.over_sampling import over_sampling

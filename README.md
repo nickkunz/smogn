@@ -32,6 +32,27 @@ pip install smogn
 pip install git+https://github.com/nickkunz/smogn.git
 ```
 
+## Usage
+```python
+## load libraries
+import smogn
+import pandas
+
+## load data
+housing = pandas.read_csv(
+    
+    ## http://jse.amstat.org/v19n3/decock.pdf
+    "https://raw.githubusercontent.com/nickkunz/smogn/master/data/housing.csv"
+)
+
+## conduct smogn
+housing_smogn = smogn.smoter(
+    
+    data = housing, 
+    y = "SalePrice"
+)
+```
+
 ## Road Map
 1. Distributed computing support
 2. Optimized distance metrics

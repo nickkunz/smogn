@@ -69,3 +69,5 @@ SMOGN is open for improvements and maintenance. Your help is valued to make the 
 ## Reference
 
 Branco, P., Torgo, L., Ribeiro, R. (2017). SMOGN: A Pre-Processing Approach for Imbalanced Regression. Proceedings of Machine Learning Research, 74:36-50. http://proceedings.mlr.press/v74/branco17a/branco17a.pdf.
+
+Kunz, N. (2019). SMOGN: Synthetic Minority Over-Sampling for Regression with Gaussian Noise. Python Package Index. https://pypi.org/project/smogn.

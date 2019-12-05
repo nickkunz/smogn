@@ -2,3 +2,4 @@ include README.md
 include LICENSE
 include UPDATES
 include data/housing.csv
+include examples/smogn_example_1.ipynb

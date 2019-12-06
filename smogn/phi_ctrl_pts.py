@@ -138,10 +138,9 @@ def phi_range(y, xtrm_type, coef, ctrl_pts):
     interpolate a smooth and continous monotonically increasing function
     
     example:
-    [x,  y, m],
-    [15, 1, 0],
+    [[15, 1, 0],
     [30, 0, 0],
-    [55, 1, 0]
+    [55, 1, 0]]
     """
     
     ## convert 'ctrl_pts' to numpy 2d array (matrix)
@@ -149,9 +148,9 @@ def phi_range(y, xtrm_type, coef, ctrl_pts):
                    
     ## quality control checks for user specified phi relevance values
     if np.isnan(ctrl_pts).any() or np.size(ctrl_pts, axis = 1) > 3 or np.size(
-        ctrl_pts, axis = 1) < 2 or not isinstance(ctrl_pts, (np.ndarray)):
-        print("ctrl_pts must be given as a matrix in the form: [x, y, m]" 
-              "or [x, y]")
+      ctrl_pts, axis = 1) < 2 or not isinstance(ctrl_pts, (np.ndarray)):
+      print("ctrl_pts must be given as a matrix in the form: [x, y, m]" 
+            "or [x, y]")
     
     if (ctrl_pts[1: ,[1, ]] > 1).any() or (ctrl_pts[1: ,[1, ]] < 0).any():
         print("phi relevance function only maps values: [0, 1]")

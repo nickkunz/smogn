@@ -52,6 +52,8 @@ housing_smogn = smogn.smoter(
     y = "SalePrice"
 )
 ```
+A more detailed usage example can be found here: 
+https://github.com/nickkunz/smogn/blob/master/examples/smogn_example_1.ipynb
 
 ## Road Map
 1. Distributed computing support

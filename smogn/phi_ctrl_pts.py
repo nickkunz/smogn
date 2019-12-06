@@ -147,7 +147,8 @@ def phi_range(y, xtrm_type, coef, ctrl_pts):
     ctrl_pts = np.array(ctrl_pts)
                    
     ## quality control checks for user specified phi relevance values
-    if np.isnan(ctrl_pts).any() or np.size(ctrl_pts, axis = 1) > 3 or np.size(ctrl_pts, axis = 1) < 2 or not isinstance(ctrl_pts, (np.ndarray)):
+    if np.isnan(ctrl_pts).any() or np.size(ctrl_pts, axis = 1) > 3 or np.size(
+      ctrl_pts, axis = 1) < 2 or not isinstance(ctrl_pts, (np.ndarray)):
         print("ctrl_pts must be given as a matrix in the form: [x, y, m]" 
               "or [x, y]")
     

@@ -144,7 +144,7 @@ def phi_range(y, xtrm_type, coef, ctrl_pts):
     """
     
     ## convert 'ctrl_pts' to numpy 2d array (matrix)
-    ctrl_pts = np.array(ctrl_pts)
+    ctrl_pts = np.ndarray(ctrl_pts)
                    
     ## quality control checks for user specified phi relevance values
     if np.isnan(ctrl_pts).any() or np.size(ctrl_pts, axis = 1) > 3 or np.size(

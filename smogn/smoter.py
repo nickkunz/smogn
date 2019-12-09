@@ -11,19 +11,19 @@ from smogn.over_sampling import over_sampling
 def smoter(
     
     ## main arguments / inputs
-    data,                     ## training set  (pandas dataframe)
-    y,                        ## response variable y by name  (string)
-    k = 5,                    ## num of neighs for over-sampling  (pos int)
-    samp_method = "balance",  ## % over / under sample  ("balance" or extreme")
-    drop_na_col = True,       ## auto drop columns with nan's  (bool)
-    drop_na_row = True,       ## auto drop rows with nan's  (bool)
-    replace = False,          ## sampling replacement  (bool)
+    data,                     ## training set (pandas dataframe)
+    y,                        ## response variable y by name (string)
+    k = 5,                    ## num of neighs for over-sampling (pos int)
+    samp_method = "balance",  ## % over / under sample ("balance" or extreme")
+    drop_na_col = True,       ## auto drop columns with nan's (bool)
+    drop_na_row = True,       ## auto drop rows with nan's (bool)
+    replace = False,          ## sampling replacement (bool)
     
     ## phi relevance function arguments / inputs
-    rel_thres = 0.5,          ## relevance threshold considered rare  (pos real)
-    rel_method = "auto",      ## relevance method  ("auto" or "manual")
-    rel_xtrm_type = "both",   ## distribution focus  ("high", "low", "both")
-    rel_coef = 1.5,           ## coefficient for box plot  (pos real)
+    rel_thres = 0.5,          ## relevance threshold considered rare (pos real)
+    rel_method = "auto",      ## relevance method ("auto" or "manual")
+    rel_xtrm_type = "both",   ## distribution focus ("high", "low", "both")
+    rel_coef = 1.5,           ## coefficient for box plot (pos real)
     rel_ctrl_pts_rg = None    ## input for "manual" rel method  (2d array)
     
     ):
@@ -140,6 +140,7 @@ def smoter(
         method = rel_method,       ## defaults "auto" 
         xtrm_type = rel_xtrm_type, ## defaults "both"
         coef = rel_coef            ## defaults 1.5
+        ctrl_pts = rel_ctrl_pts_rg ## user spec
     )
     
     ## calculate the phi relevance function

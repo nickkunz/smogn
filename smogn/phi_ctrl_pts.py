@@ -67,14 +67,14 @@ def phi_ctrl_pts(
     
     ## conduct 'range' method
     if method == "manual":
-        phi_params = phi_range(y, xtrm_type, coef, ctrl_pts)
+        phi_params = phi_range(y, ctrl_pts)
     
     ## return phi relevance parameters dictionary
     return phi_params
 
 ## calculates phi parameters for statistically extreme values
 def phi_extremes(y, xtrm_type, coef, ctrl_pts):
-  
+    
     """ 
     assigns relevance to the most extreme values in the distribution of response 
     variable y according to the box plot stats generated from 'box_plot_stat()'
@@ -124,7 +124,7 @@ def phi_extremes(y, xtrm_type, coef, ctrl_pts):
     return phi_params
 
 ## calculates phi parameters for user specified range
-def phi_range(y, xtrm_type, coef, ctrl_pts):
+def phi_range(y, ctrl_pts):
     
     """
     assigns relevance to values in the response variable y according to user 
@@ -154,7 +154,7 @@ def phi_range(y, xtrm_type, coef, ctrl_pts):
     if (ctrl_pts[1: ,[1, ]] > 1).any() or (ctrl_pts[1: ,[1, ]] < 0).any():
         print("phi relevance function only maps values: [0, 1]")
     
-    ## store number of control points 
+    ## store number of control points
     else:
         num_pts = np.size(ctrl_pts, axis = 0)
         dx = ctrl_pts[1:,[0,]] - ctrl_pts[0:-1,[0,]]

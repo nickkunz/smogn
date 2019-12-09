@@ -139,7 +139,7 @@ def smoter(
         y = y_sort,                ## y (ascending)
         method = rel_method,       ## defaults "auto" 
         xtrm_type = rel_xtrm_type, ## defaults "both"
-        coef = rel_coef            ## defaults 1.5
+        coef = rel_coef,           ## defaults 1.5
         ctrl_pts = rel_ctrl_pts_rg ## user spec
     )
     

@@ -12,7 +12,7 @@ def phi_ctrl_pts(
     method = "auto",      ## relevance method ("auto" or "manual")
     xtrm_type = "both",   ## distribution focus ("high", "low", "both")
     coef = 1.5,           ## coefficient for box plot
-    ctrl_pts = None       ## input for "manual" rel method
+    ctrl_pts              ## input for "manual" rel method
     ):
     
     """ 
@@ -63,7 +63,7 @@ def phi_ctrl_pts(
     
     ## conduct 'extremes' method (default)
     if method == "auto":
-        phi_params = phi_extremes(y, xtrm_type, coef, ctrl_pts)
+        phi_params = phi_extremes(y, xtrm_type, coef)
     
     ## conduct 'range' method
     if method == "manual":
@@ -73,7 +73,7 @@ def phi_ctrl_pts(
     return phi_params
 
 ## calculates phi parameters for statistically extreme values
-def phi_extremes(y, xtrm_type, coef, ctrl_pts):
+def phi_extremes(y, xtrm_type, coef):
     
     """ 
     assigns relevance to the most extreme values in the distribution of response 
@@ -116,7 +116,7 @@ def phi_extremes(y, xtrm_type, coef, ctrl_pts):
     
     ## store phi relevance parameter dictionary
     phi_params = {}
-    phi_params["method"] = "extremes"
+    phi_params["method"] = "auto"
     phi_params["num_pts"] = round(len(ctrl_pts) / 3)
     phi_params["ctrl_pts"] = ctrl_pts
     
@@ -151,7 +151,7 @@ def phi_range(y, ctrl_pts):
         print("ctrl_pts must be given as a matrix in the form: [x, y, m]" 
               "or [x, y]")
     
-    if (ctrl_pts[1: ,[1, ]] > 1).any() or (ctrl_pts[1: ,[1, ]] < 0).any():
+    elif (ctrl_pts[1: ,[1, ]] > 1).any() or (ctrl_pts[1: ,[1, ]] < 0).any():
         print("phi relevance function only maps values: [0, 1]")
     
     ## store number of control points
@@ -187,7 +187,7 @@ def phi_range(y, ctrl_pts):
     
     ## store phi relevance parameter dictionary
     phi_params = {}
-    phi_params["method"] = "range"
+    phi_params["method"] = "manual"
     phi_params["num_pts"] = np.size(ctrl_pts, axis = 0)
     phi_params["ctrl_pts"] = np.array(ctrl_pts).ravel().tolist()
     

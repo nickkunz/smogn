@@ -12,7 +12,7 @@ def phi_ctrl_pts(
     method = "auto",      ## relevance method ("auto" or "manual")
     xtrm_type = "both",   ## distribution focus ("high", "low", "both")
     coef = 1.5,           ## coefficient for box plot
-    ctrl_pts              ## input for "manual" rel method
+    ctrl_pts = None       ## input for "manual" rel method
     ):
     
     """ 
@@ -59,7 +59,7 @@ def phi_ctrl_pts(
     
     ## quality control check for user specified method
     if method in ["auto", "manual"] == False:
-        print("method must be either: 'auto' or 'manual'")
+        print("method must be either: 'auto' or 'manual' ")
     
     ## conduct 'extremes' method (default)
     if method == "auto":
@@ -67,7 +67,7 @@ def phi_ctrl_pts(
     
     ## conduct 'range' method
     if method == "manual":
-        phi_params = phi_range(y, ctrl_pts)
+        phi_params = phi_range(ctrl_pts)
     
     ## return phi relevance parameters dictionary
     return phi_params
@@ -124,7 +124,7 @@ def phi_extremes(y, xtrm_type, coef):
     return phi_params
 
 ## calculates phi parameters for user specified range
-def phi_range(y, ctrl_pts):
+def phi_range(ctrl_pts):
     
     """
     assigns relevance to values in the response variable y according to user 

@@ -21,7 +21,6 @@ A Python implementation of Synthetic Minority Over-Sampling Technique for Regres
 3. Flexible inputs available to control the areas of interest within a continuous response variable and friendly parameters for over-sampling synthetic data
 
 4. Purely Pythonic, developed for consistency, maintainability, and future improvement, no foreign function calls to C or Fortran, as contained in original R implementation
-<br>
 
 ## Installation
 ```python

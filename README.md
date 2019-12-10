@@ -58,11 +58,6 @@ housing_smogn = smogn.smoter(
 2. [Intermediate](https://github.com/nickkunz/smogn/blob/master/examples/smogn_example_2_int.ipynb) <br>
 3. [Advanced](https://github.com/nickkunz/smogn/blob/master/examples/smogn_example_3_adv.ipynb) <br>
 
-## Road Map
-1. Distributed computing support
-2. Optimized distance metrics
-3. Explore interpolation methods
-
 ## License
 
 © Nick Kunz, 2019. Licensed under the General Public License v3.0 (GPLv3).

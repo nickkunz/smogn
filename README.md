@@ -54,9 +54,9 @@ housing_smogn = smogn.smoter(
 ```
 
 **Detailed Usage Examples:**
-[Example 1. Beginner](https://github.com/nickkunz/smogn/blob/master/examples/smogn_example_1.ipynb)
-[Example 2. Intermediate](https://github.com/nickkunz/smogn/blob/master/examples/smogn_example_2.ipynb)
-[Example 3. Advanced](https://github.com/nickkunz/smogn/blob/master/examples/smogn_example_3.ipynb)
+[Example 1. Beginner](https://github.com/nickkunz/smogn/blob/master/examples/smogn_example_1.ipynb) <br>
+[Example 2. Intermediate](https://github.com/nickkunz/smogn/blob/master/examples/smogn_example_2.ipynb) <br>
+[Example 3. Advanced](https://github.com/nickkunz/smogn/blob/master/examples/smogn_example_3.ipynb) <br>
 
 ## Road Map
 1. Distributed computing support

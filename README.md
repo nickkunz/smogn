@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://github.com/nickkunz/smogn/blob/master/media/images/smogn_logo.png">
+  <img src="https://github.com/nickkunz/smogn/blob/master/media/images/smogn_banner.png">
 </div>
 
 
@@ -52,8 +52,11 @@ housing_smogn = smogn.smoter(
     y = "SalePrice"
 )
 ```
-A more detailed usage example can be found here: 
-https://github.com/nickkunz/smogn/blob/master/examples/smogn_example_1.ipynb
+
+**Detailed Usage Examples:**
+[Example 1. Beginner](https://github.com/nickkunz/smogn/blob/master/examples/smogn_example_1.ipynb)
+[Example 2. Intermediate](https://github.com/nickkunz/smogn/blob/master/examples/smogn_example_2.ipynb)
+[Example 3. Advanced](https://github.com/nickkunz/smogn/blob/master/examples/smogn_example_3.ipynb)
 
 ## Road Map
 1. Distributed computing support

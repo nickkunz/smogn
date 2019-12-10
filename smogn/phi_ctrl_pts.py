@@ -177,9 +177,9 @@ def phi_range(ctrl_pts):
         
         ## calculate constant extrapolation
         m = np.divide(sx[1:] + sx[0:-1], 2)
-        m = np.array(ex).ravel().tolist()
+        m = np.array(sx).ravel().tolist()
         m.insert(0, 0)
-        m.insert(len(ex), 0)
+        m.insert(len(sx), 0)
         
         ## add calculated column 'm' to user specified control points 
         ## from [x, y] to [x, y, m] and store in 'ctrl_pts'

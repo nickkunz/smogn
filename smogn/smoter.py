@@ -83,10 +83,10 @@ def smoter(
     """
     
     ## pre-process missing values
-    if bool(drop_na_col) == True:
+    if bool(drop_na_col) is True:
         data = data.dropna(axis = 1)  ## drop columns with nan's
     
-    if bool(drop_na_row) == True:
+    if bool(drop_na_row) is True:
         data = data.dropna(axis = 0)  ## drop rows with nan's
     
     ## data quality check
@@ -94,7 +94,7 @@ def smoter(
         print("cannot proceed: data cannot contain NaN values")
     
     ## relative threshold parameter quality check
-    if rel_thres == None:
+    if rel_thres is None:
         print("cannot proceed: phi relevance threshold required")
     
     ## input quality check for k number specification
@@ -165,7 +165,7 @@ def smoter(
     for i in range(0, len(y_sort) - 1):
         if ((y_phi[i] >= rel_thres and y_phi[i + 1] < rel_thres) or 
             (y_phi[i] < rel_thres and y_phi[i + 1] >= rel_thres)):
-            bumps.append(i + 1)
+                bumps.append(i + 1)
     
     bumps.append(n)
             

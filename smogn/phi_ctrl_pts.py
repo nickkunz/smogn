@@ -54,7 +54,7 @@ def phi_ctrl_pts(
     """
     
     ## quality control check for response variable 'y'
-    if any(y is None) or isinstance(y, (int, float, complex)):
+    if any(y == None) or isinstance(y, (int, float, complex)):
         print("response variable 'y' must be specified and numeric")
     
     ## quality control check for user specified method

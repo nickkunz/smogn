@@ -54,11 +54,11 @@ def phi_ctrl_pts(
     """
     
     ## quality control check for response variable 'y'
-    if any(y == None) or isinstance(y, (int, float, complex)):
+    if any(y is None) or isinstance(y, (int, float, complex)):
         print("response variable 'y' must be specified and numeric")
     
     ## quality control check for user specified method
-    if method in ["auto", "manual"] == False:
+    if method in ["auto", "manual"] is False:
         print("method must be either: 'auto' or 'manual' ")
     
     ## conduct 'extremes' method (default)
@@ -156,7 +156,6 @@ def phi_range(ctrl_pts):
     
     ## store number of control points
     else:
-        num_pts = np.size(ctrl_pts, axis = 0)
         dx = ctrl_pts[1:,[0,]] - ctrl_pts[0:-1,[0,]]
     
     ## quality control check for dx

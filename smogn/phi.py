@@ -1,4 +1,5 @@
 ## load dependency - third party
+import numpy as np
 import bisect as bs
     
 ## calculate the phi relevance function
@@ -134,7 +135,7 @@ def pchip_slope_mono_fc(m, delta, num_pts):
                 m_2ab3 + m_a2b3) < (m_2ab3 * m_2ab3):
                 
                 ## fix slopes if outside of monotoncity
-                taus = 3 * sk / sqrt(alpha * alpha + beta * beta)
+                taus = 3 * sk / np.sqrt(alpha * alpha + beta * beta)
                 m[k] = taus * alpha
                 m[k1] = taus * beta
     

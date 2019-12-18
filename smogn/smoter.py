@@ -165,7 +165,7 @@ def smoter(
     for i in range(0, len(y_sort) - 1):
         if ((y_phi[i] >= rel_thres and y_phi[i + 1] < rel_thres) or 
             (y_phi[i] < rel_thres and y_phi[i + 1] >= rel_thres)):
-            bumps.append(i + 1)
+                bumps.append(i + 1)
     
     bumps.append(n)
             

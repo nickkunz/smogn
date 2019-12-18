@@ -237,7 +237,11 @@ def smoter(
                 replace = replace
             )
             
-            omit_obs = data.drop(data.iloc[omit_index], axis = 0)
+            omit_obs = data.drop(
+                data.iloc[omit_index], 
+                axis = 0, 
+                inplace = True
+            )
             
             ## concatenate under-sampling
             ## results to modified training set

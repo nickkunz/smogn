@@ -14,7 +14,6 @@ install:
  
 script: 
   - python setup.py test
-  - coverage run -m unittest discover
 
 notifications:
     on_success: always

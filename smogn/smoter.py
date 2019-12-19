@@ -94,7 +94,7 @@ def smoter(
         print("cannot proceed: data cannot contain NaN values")
         
     ## quality check for y
-    if isinstance(y, str) == False:
+    if isinstance(y, str) is False:
         print("cannot proceed: y argument must be a string")
     
     ## quality check for k number specification
@@ -103,7 +103,7 @@ def smoter(
                observations / rows contained in the dataframe")
     
     ## quality check for sampling method
-    if samp_method in ["balance", "extreme"] == False:
+    if samp_method in ["balance", "extreme"] is False:
         print("samp_method must be either: 'balance' or 'extreme' ")
     
     ## quality check for relevance threshold parameter

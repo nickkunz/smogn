@@ -58,11 +58,11 @@ def phi_ctrl_pts(
         print("response variable 'y' must be specified and numeric")
     
     ## quality check for user specified method
-    if method in ["auto", "manual"] == False:
+    if method in ["auto", "manual"] is False:
         print("method must be either: 'auto' or 'manual' ")
     
     ## quality check for xtrm_type
-    if xtrm_type in ["high", "low", "both"] == False:
+    if xtrm_type in ["high", "low", "both"] is False:
         print("xtrm_type must be either: 'high' or 'low' or 'both' ")
     
     ## conduct 'extremes' method (default)

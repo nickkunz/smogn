@@ -65,13 +65,6 @@ def phi_ctrl_pts(
     if xtrm_type in ["high", "low", "both"] == False:
         print("xtrm_type must be either: 'high' or 'low' or 'both' ")
     
-    ## quality check for relevance threshold parameter 
-    if rel_thres == None:
-        print("cannot proceed: relevance threshold required")
-    
-    if rel_thres > 1 or rel_thres <= 0:
-        print("rel_thres must be a real number number: 0 < R < 1")
-    
     ## conduct 'extremes' method (default)
     if method == "auto":
         phi_params = phi_extremes(y, xtrm_type, coef)

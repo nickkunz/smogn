@@ -106,6 +106,13 @@ def smoter(
     if samp_method in ["balance", "extreme"] == False:
         print("samp_method must be either: 'balance' or 'extreme' ")
     
+    ## quality check for relevance threshold parameter
+    if rel_thres == None:
+        print("cannot proceed: relevance threshold required")
+    
+    if rel_thres > 1 or rel_thres <= 0:
+        print("rel_thres must be a real number number: 0 < R < 1")
+    
     ## store data dimensions
     n = len(data)
     d = len(data.columns)

@@ -97,7 +97,7 @@ def smoter(
     if rel_thres == None:
         print("cannot proceed: relevance threshold required")
     
-    if rel_thres > 1 or <= 0:
+    if rel_thres > 1 or rel_thres <= 0:
         print("rel_thres must be a real number number: 0 < R < 1")
     
     ## quality control check for sampling method
@@ -175,7 +175,7 @@ def smoter(
                 bumps.append(i + 1)
     
     bumps.append(n)
-            
+    
     ## number of bump classes
     n_bumps = len(bumps) - 1
     
@@ -195,10 +195,11 @@ def smoter(
     if samp_method == "balance":
         for i in b_index:
             s_perc.append(b / len(b_index[i]))
-            
+    
     if samp_method == "extreme":
         for i in b_index:
             scale.append(b ** 2 / len(b_index[i]))
+        
         scale = n_bumps * b / sum(scale)
         
         for i in b_index:

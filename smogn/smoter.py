@@ -94,7 +94,7 @@ def smoter(
         print("cannot proceed: data cannot contain NaN values")
         
     ## quality check for y
-    if type(y) != str:
+    if isinstance(y, str) == False:
         print("cannot proceed: y argument must be a string")
     
     ## quality check for k number specification

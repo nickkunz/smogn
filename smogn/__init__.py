@@ -12,8 +12,6 @@ from smogn.smoter import smoter
 __all__ = [
 
     "box_plot_stats",
-    "dist_metrics",
-    "over_sampling",
     "phi_ctrl_pts",
     "phi",
     "smoter"

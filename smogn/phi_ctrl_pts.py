@@ -53,17 +53,24 @@ def phi_ctrl_pts(
     Faculty of Sciences, University of Porto).
     """
     
-    ## quality control check for response variable 'y'
+    ## quality check for response variable 'y'
     if any(y == None) or isinstance(y, (int, float, complex)):
         print("response variable 'y' must be specified and numeric")
     
-    ## quality control check for user specified method
-    if method in ["auto", "manual"] is False:
+    ## quality check for user specified method
+    if method in ["auto", "manual"] == False:
         print("method must be either: 'auto' or 'manual' ")
     
-    ## quality control check for xtrm type
-    if xtrm_type in ["high", "low", "both"] is False:
+    ## quality check for xtrm_type
+    if xtrm_type in ["high", "low", "both"] == False:
         print("xtrm_type must be either: 'high' or 'low' or 'both' ")
+    
+    ## quality check for relevance threshold parameter 
+    if rel_thres == None:
+        print("cannot proceed: relevance threshold required")
+    
+    if rel_thres > 1 or rel_thres <= 0:
+        print("rel_thres must be a real number number: 0 < R < 1")
     
     ## conduct 'extremes' method (default)
     if method == "auto":

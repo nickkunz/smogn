@@ -89,18 +89,22 @@ def smoter(
     if bool(drop_na_row) == True:
         data = data.dropna(axis = 0)  ## drop rows with nan's
     
-    ## data quality check
+    ## quality check for missing values in dataframe
     if data.isnull().values.any():
         print("cannot proceed: data cannot contain NaN values")
+        
+    ## quality check for y
+    if type(y) != str:
+        print("cannot proceed: y argument must be a string")
     
-    ## relative threshold parameter quality check
-    if rel_thres == None:
-        print("cannot proceed: phi relevance threshold required")
-    
-    ## input quality check for k number specification
+    ## quality check for k number specification
     if k > len(data):
         print("cannot proceed: k is greater than number of \
                observations / rows contained in the dataframe")
+    
+    ## quality check for sampling method
+    if samp_method in ["balance", "extreme"] == False:
+        print("samp_method must be either: 'balance' or 'extreme' ")
     
     ## store data dimensions
     n = len(data)

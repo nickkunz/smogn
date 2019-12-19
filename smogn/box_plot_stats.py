@@ -43,6 +43,10 @@ def box_plot_stats(
     Graphical Methods for Data Analysis. Wadsworth & Brooks/Cole.
     """
     
+    ## quality check for coef
+    if coef <= 0:
+        print("cannot proceed: coef must be greater than zero")
+    
     ## convert input to numpy array
     x = np.array(x)
     

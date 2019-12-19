@@ -61,6 +61,10 @@ def phi_ctrl_pts(
     if method in ["auto", "manual"] is False:
         print("method must be either: 'auto' or 'manual' ")
     
+    ## quality control check for xtrm type
+    if xtrm_type in ["high", "low", "both"] is False:
+        print("xtrm_type must be either: 'high' or 'low' or 'both' ")
+    
     ## conduct 'extremes' method (default)
     if method == "auto":
         phi_params = phi_extremes(y, xtrm_type, coef)

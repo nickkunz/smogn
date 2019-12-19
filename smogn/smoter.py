@@ -175,7 +175,7 @@ def smoter(
                 bumps.append(i + 1)
     
     bumps.append(n)
-    
+            
     ## number of bump classes
     n_bumps = len(bumps) - 1
     
@@ -195,11 +195,10 @@ def smoter(
     if samp_method == "balance":
         for i in b_index:
             s_perc.append(b / len(b_index[i]))
-    
+            
     if samp_method == "extreme":
         for i in b_index:
             scale.append(b ** 2 / len(b_index[i]))
-        
         scale = n_bumps * b / sum(scale)
         
         for i in b_index:

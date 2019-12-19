@@ -179,7 +179,7 @@ def smoter(
                 bumps.append(i + 1)
     
     bumps.append(n)
-            
+    
     ## number of bump classes
     n_bumps = len(bumps) - 1
     
@@ -224,7 +224,8 @@ def smoter(
         ## over-sampling
         if s_perc[i] > 1:
             
-            ## generate synthetic observations
+            ## generate synthetic observations in training set
+            ## considered 'minority'
             ## (see 'over_sampling()' function for details)
             synth_obs = over_sampling(
                 data = data,
@@ -248,7 +249,10 @@ def smoter(
                 replace = replace
             )
             
-            omit_obs = data.drop(data.iloc[omit_index], axis = 0)
+            omit_obs = data.drop(
+                index = omit_index, 
+                axis = 0
+            )
             
             ## concatenate under-sampling
             ## results to modified training set

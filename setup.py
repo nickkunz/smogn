@@ -33,7 +33,15 @@ setup(
     
     packages = ['smogn'],
     include_package_data = True,
-    install_requires = ['numpy', 'pandas'],
+    
+    install_requires = [
+        
+        'numpy', 
+        'pandas',
+        'random',
+        'bisect'
+    ],
+
     tests_require = ['nose'],
     test_suite = 'nose.collector'
 )

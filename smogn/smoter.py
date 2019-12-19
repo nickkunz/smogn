@@ -246,8 +246,7 @@ def smoter(
             
             omit_obs = data.drop(
                 data.iloc[omit_index], 
-                axis = 0, 
-                inplace = True
+                axis = 0
             )
             
             ## concatenate under-sampling

@@ -95,14 +95,7 @@ def smoter(
     
     ## relative threshold parameter quality check
     if rel_thres == None:
-        print("cannot proceed: relevance threshold required")
-    
-    if rel_thres > 1 or rel_thres <= 0:
-        print("rel_thres must be a real number number: 0 < R < 1")
-    
-    ## quality control check for sampling method
-    if samp_method in ["balance", "extreme"] is False:
-        print("samp_method must be either: 'balance' or 'extreme' ")
+        print("cannot proceed: phi relevance threshold required")
     
     ## input quality check for k number specification
     if k > len(data):
@@ -244,10 +237,7 @@ def smoter(
                 replace = replace
             )
             
-            omit_obs = data.drop(
-                data.iloc[omit_index], 
-                axis = 0
-            )
+            omit_obs = data.drop(data.iloc[omit_index], axis = 0)
             
             ## concatenate under-sampling
             ## results to modified training set

@@ -208,7 +208,7 @@ def smoter(
             
             ## simply return no sampling
             ## results to modified training set
-            data_new = pd.concat([data.iloc[b_index[i].index], data_new])
+            data_new = pd.concat([data.loc[b_index[i].index], data_new])
         
         ## over-sampling
         if s_perc[i] > 1:
@@ -238,7 +238,7 @@ def smoter(
             )
             
             omit_obs = data.drop(
-                data.iloc[omit_index], 
+                data.loc[omit_index], 
                 axis = 0, 
                 inplace = True
             )

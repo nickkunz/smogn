@@ -95,7 +95,11 @@ def smoter(
         
     ## quality check for y
     if isinstance(y, str) is False:
-        print("cannot proceed: y argument must be a string")
+        print("cannot proceed: y must be a string")
+    
+    if y in data.columns.values is False:
+        print("cannot proceed: y must be an header name (string) \
+               found in the dataframe"
     
     ## quality check for k number specification
     if k > len(data):

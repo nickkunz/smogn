@@ -14,7 +14,7 @@ def smoter(
     data,                     ## training set (pandas dataframe)
     y,                        ## response variable y by name (string)
     k = 5,                    ## num of neighs for over-sampling (pos int)
-    pert = 0.02               ## perturbation / noise percentage (pos real)
+    pert = 0.02,              ## perturbation / noise percentage (pos real)
     samp_method = "balance",  ## over / under sampling ("balance" or extreme")
     drop_na_col = True,       ## auto drop columns with nan's (bool)
     drop_na_row = True,       ## auto drop rows with nan's (bool)

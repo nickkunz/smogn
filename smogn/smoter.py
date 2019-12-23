@@ -14,7 +14,8 @@ def smoter(
     data,                     ## training set (pandas dataframe)
     y,                        ## response variable y by name (string)
     k = 5,                    ## num of neighs for over-sampling (pos int)
-    samp_method = "balance",  ## % over / under sample ("balance" or extreme")
+    pert = 0.02               ## perturbation / noise percentage (pos real)
+    samp_method = "balance",  ## over / under sampling ("balance" or extreme")
     drop_na_col = True,       ## auto drop columns with nan's (bool)
     drop_na_row = True,       ## auto drop rows with nan's (bool)
     replace = False,          ## sampling replacement (bool)
@@ -56,7 +57,7 @@ def smoter(
     over-sampling is applied one of two ways, either synthetic minority over-
     sampling technique for regression 'smoter' or 'smoter-gn' which applies a 
     similar interpolation method to 'smoter', but takes an additional step to
-    perterb the interpolated values with gaussian noise
+    perturb the interpolated values with gaussian noise
     
     'smoter' is selected when the distance between a given observation and a 
     selected nearest neighbor is within the maximum threshold (half the median 
@@ -105,6 +106,10 @@ def smoter(
     if k > len(data):
         print("cannot proceed: k is greater than number of \
                observations / rows contained in the dataframe")
+    
+    ## quality check for perturbation
+    if pert > 1 or pert <= 0:
+        print("pert must be a real number number: 0 < R < 1")
     
     ## quality check for sampling method
     if samp_method in ["balance", "extreme"] is False:
@@ -235,6 +240,7 @@ def smoter(
                 data = data,
                 index = list(b_index[i].index),
                 perc = s_perc[i],
+                pert = pert,
                 k = k
             )
             

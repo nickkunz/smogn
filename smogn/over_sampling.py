@@ -13,7 +13,8 @@ def over_sampling(
     ## arguments / inputs
     data,       ## training set
     index,      ## index of input data
-    perc,       ## % over / under sampling
+    perc,       ## over / under sampling
+    pert,       ## perturbation / noise percentage
     k           ## num of neighs for over-sampling
     
     ):
@@ -291,8 +292,8 @@ def over_sampling(
                 ## for regression with the introduction of gaussian 
                 ## noise (smoter-gn)
                 else:
-                    if max_dist[i] > 0.02:
-                        t_pert = 0.02
+                    if max_dist[i] > pert:
+                        t_pert = pert
                     else:
                         t_pert = max_dist[i]
                     
@@ -384,8 +385,8 @@ def over_sampling(
             ## for regression with the introduction of gaussian 
             ## noise (smoter-gn)
             else:
-                if max_dist[i] > 0.02:
-                    t_pert = 0.02
+                if max_dist[i] > pert:
+                    t_pert = pert
                 else:
                     t_pert = max_dist[i]
                 

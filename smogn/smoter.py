@@ -100,7 +100,7 @@ def smoter(
     
     if y in data.columns.values is False:
         print("cannot proceed: y must be an header name (string) \
-               found in the dataframe"
+               found in the dataframe")
     
     ## quality check for k number specification
     if k > len(data):

@@ -15,13 +15,18 @@ A Python implementation of Synthetic Minority Over-Sampling Technique for Regres
 <br>
 
 ## Features
-1. The only open-source Python supported version of Synthetic Minority Over-Sampling Technique for Regression
+1. The only open-source Python supported version of Synthetic Minority Over-Sampling Technique for Regression.
 
-2. Supports Pandas DataFrame inputs containing mixed data types, auto distance metric selection by data type, and optional auto removal of missing values
+2. Supports Pandas DataFrame inputs containing mixed data types, auto distance metric selection by data type, and optional auto removal of missing values.
 
-3. Flexible inputs available to control the areas of interest within a continuous response variable and friendly parameters for over-sampling synthetic data
+3. Flexible inputs available to control the areas of interest within a continuous response variable and friendly parameters for over-sampling synthetic data.
 
-4. Purely Pythonic, developed for consistency, maintainability, and future improvement, no foreign function calls to C or Fortran, as contained in original R implementation
+4. Purely Pythonic, developed for consistency, maintainability, and future improvement, no foreign function calls to C or Fortran, as contained in original R implementation.
+
+## Requirements
+1. Python 3
+2. NumPy
+3. Pandas
 
 ## Installation
 ```python
@@ -53,7 +58,7 @@ housing_smogn = smogn.smoter(
 )
 ```
 
-## Detailed Examples
+## Examples
 1. [Beginner](https://github.com/nickkunz/smogn/blob/master/examples/smogn_example_1_beg.ipynb) <br>
 2. [Intermediate](https://github.com/nickkunz/smogn/blob/master/examples/smogn_example_2_int.ipynb) <br>
 3. [Advanced](https://github.com/nickkunz/smogn/blob/master/examples/smogn_example_3_adv.ipynb) <br>

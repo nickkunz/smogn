@@ -92,7 +92,7 @@ def smoter(
     ## quality check for missing values in dataframe
     if data.isnull().values.any():
         print("cannot proceed: data cannot contain NaN values")
-        
+    
     ## quality check for y
     if isinstance(y, str) is False:
         print("cannot proceed: y must be a string")

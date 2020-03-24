@@ -77,5 +77,8 @@ SMOGN-0.1.0: 2019-12-22
 - Update all example tutorials
 - Check code quality
 
-
+SMOGN-0.1.1: 2020-03-23
+==========================
+- Add progress bar
+- Add option to not under-sample
 

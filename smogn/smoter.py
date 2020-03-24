@@ -16,6 +16,7 @@ def smoter(
     k = 5,                    ## num of neighs for over-sampling (pos int)
     pert = 0.02,              ## perturbation / noise percentage (pos real)
     samp_method = "balance",  ## over / under sampling ("balance" or extreme")
+    under_samp = True,        ## under sampling (bool)
     drop_na_col = True,       ## auto drop columns with nan's (bool)
     drop_na_row = True,       ## auto drop rows with nan's (bool)
     replace = False,          ## sampling replacement (bool)
@@ -249,24 +250,25 @@ def smoter(
             data_new = pd.concat([synth_obs, data_new])
         
         ## under-sampling
-        if s_perc[i] < 1:
-            
-            ## drop observations in training set
-            ## considered 'normal' (not 'rare')
-            omit_index = np.random.choice(
-                a = list(b_index[i].index), 
-                size = int(s_perc[i] * len(b_index[i])),
-                replace = replace
-            )
-            
-            omit_obs = data.drop(
-                index = omit_index, 
-                axis = 0
-            )
-            
-            ## concatenate under-sampling
-            ## results to modified training set
-            data_new = pd.concat([omit_obs, data_new])
+        if under_samp is True:
+            if s_perc[i] < 1:
+                
+                ## drop observations in training set
+                ## considered 'normal' (not 'rare')
+                omit_index = np.random.choice(
+                    a = list(b_index[i].index), 
+                    size = int(s_perc[i] * len(b_index[i])),
+                    replace = replace
+                )
+                
+                omit_obs = data.drop(
+                    index = omit_index, 
+                    axis = 0
+                )
+                
+                ## concatenate under-sampling
+                ## results to modified training set
+                data_new = pd.concat([omit_obs, data_new])
     
     ## rename feature headers to originals
     data_new.columns = feat_names

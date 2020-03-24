@@ -2,6 +2,7 @@
 import numpy as np
 import pandas as pd
 import random as rd
+from tqdm import tqdm
 
 ## load dependencies - internal
 from smogn.box_plot_stats import box_plot_stats
@@ -159,7 +160,7 @@ def over_sampling(
     ## store results over null distance matrix of n x n
     dist_matrix = np.ndarray(shape = (n, n))
     
-    for i in range(n):
+    for i in tqdm(range(n), ascii = True, desc = "dist_matrix"):
         for j in range(n):
             
             ## utilize euclidean distance given that 
@@ -232,7 +233,7 @@ def over_sampling(
     synth_matrix = np.ndarray(shape = ((x_synth * n + n_synth), d))
     
     if x_synth > 0:
-        for i in range(n):
+        for i in tqdm(range(n), ascii = True, desc = "synth_matrix"):
             
             ## determine which cases are 'safe' to interpolate
             safe_list = np.where(
@@ -331,7 +332,7 @@ def over_sampling(
     if n_synth > 0:
         count = 0
         
-        for i in r_index:
+        for i in tqdm(r_index, ascii = True, desc = "r_index"):
             
             ## determine which cases are 'safe' to interpolate
             safe_list = np.where(

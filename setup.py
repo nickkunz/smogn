@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     
     name = 'smogn',
-    version = '0.1.0',
+    version = '0.1.1',
     description = 'A Python implementation of Synthetic Minority Over-Sampling Technique for Regression with Gaussian Noise (SMOGN)',
     long_description = open('README.md').read(),
     long_description_content_type = "text/markdown",
@@ -34,7 +34,7 @@ setup(
     
     packages = ['smogn'],
     include_package_data = True,
-    install_requires = ['numpy', 'pandas'],
+    install_requires = ['numpy', 'pandas', 'tqdm'],
     tests_require = ['nose'],
     test_suite = 'nose.collector'
 )

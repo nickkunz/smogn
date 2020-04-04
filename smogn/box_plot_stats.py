@@ -45,7 +45,7 @@ def box_plot_stats(
     
     ## quality check for coef
     if coef <= 0:
-        print("cannot proceed: coef must be greater than zero")
+        raise ValueError("cannot proceed: coef must be greater than zero")
     
     ## convert input to numpy array
     x = np.array(x)

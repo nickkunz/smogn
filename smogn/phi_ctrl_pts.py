@@ -55,15 +55,15 @@ def phi_ctrl_pts(
     
     ## quality check for response variable 'y'
     if any(y == None) or isinstance(y, (int, float, complex)):
-        print("response variable 'y' must be specified and numeric")
+        raise ValueError("response variable 'y' must be specified and numeric")
     
     ## quality check for user specified method
     if method in ["auto", "manual"] is False:
-        print("method must be either: 'auto' or 'manual' ")
+        raise ValueError("method must be either: 'auto' or 'manual' ")
     
     ## quality check for xtrm_type
     if xtrm_type in ["high", "low", "both"] is False:
-        print("xtrm_type must be either: 'high' or 'low' or 'both' ")
+        raise ValueError("xtrm_type must be either: 'high' or 'low' or 'both' ")
     
     ## conduct 'extremes' method (default)
     if method == "auto":
@@ -152,11 +152,11 @@ def phi_range(ctrl_pts):
     ## quality control checks for user specified phi relevance values
     if np.isnan(ctrl_pts).any() or np.size(ctrl_pts, axis = 1) > 3 or np.size(
     ctrl_pts, axis = 1) < 2 or not isinstance(ctrl_pts, np.ndarray):
-        print("ctrl_pts must be given as a matrix in the form: [x, y, m]" 
+        raise ValueError("ctrl_pts must be given as a matrix in the form: [x, y, m]" 
               "or [x, y]")
     
     elif (ctrl_pts[1: ,[1, ]] > 1).any() or (ctrl_pts[1: ,[1, ]] < 0).any():
-        print("phi relevance function only maps values: [0, 1]")
+        raise ValueError("phi relevance function only maps values: [0, 1]")
     
     ## store number of control points
     else:
@@ -164,7 +164,7 @@ def phi_range(ctrl_pts):
     
     ## quality control check for dx
     if np.isnan(dx).any() or dx.any() == 0:
-        print("x must strictly increase (not na)")
+        raise ValueError("x must strictly increase (not na)")
     
     ## sort control points from lowest to highest
     else:

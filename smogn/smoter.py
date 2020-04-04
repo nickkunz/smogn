@@ -93,35 +93,35 @@ def smoter(
     
     ## quality check for missing values in dataframe
     if data.isnull().values.any():
-        print("cannot proceed: data cannot contain NaN values")
+        raise ValueError("cannot proceed: data cannot contain NaN values")
     
     ## quality check for y
     if isinstance(y, str) is False:
-        print("cannot proceed: y must be a string")
+        raise ValueError("cannot proceed: y must be a string")
     
     if y in data.columns.values is False:
-        print("cannot proceed: y must be an header name (string) \
+        raise ValueError("cannot proceed: y must be an header name (string) \
                found in the dataframe")
     
     ## quality check for k number specification
     if k > len(data):
-        print("cannot proceed: k is greater than number of \
+        raise ValueError("cannot proceed: k is greater than number of \
                observations / rows contained in the dataframe")
     
     ## quality check for perturbation
     if pert > 1 or pert <= 0:
-        print("pert must be a real number number: 0 < R < 1")
+        raise ValueError("pert must be a real number number: 0 < R < 1")
     
     ## quality check for sampling method
     if samp_method in ["balance", "extreme"] is False:
-        print("samp_method must be either: 'balance' or 'extreme' ")
+        raise ValueError("samp_method must be either: 'balance' or 'extreme' ")
     
     ## quality check for relevance threshold parameter
     if rel_thres == None:
-        print("cannot proceed: relevance threshold required")
+        raise ValueError("cannot proceed: relevance threshold required")
     
     if rel_thres > 1 or rel_thres <= 0:
-        print("rel_thres must be a real number number: 0 < R < 1")
+        raise ValueError("rel_thres must be a real number number: 0 < R < 1")
     
     ## store data dimensions
     n = len(data)
@@ -174,10 +174,10 @@ def smoter(
     
     ## phi relevance quality check
     if all(i == 0 for i in y_phi):
-        print("redefine phi relevance function: all points are 1")
+        raise ValueError("redefine phi relevance function: all points are 1")
     
     if all(i == 1 for i in y_phi):
-        print("redefine phi relevance function: all points are 0")
+        raise ValueError("redefine phi relevance function: all points are 0")
     ## ---------------------------------------------------------------------- ##
     
     ## determine bin (rare or normal) by bump classification

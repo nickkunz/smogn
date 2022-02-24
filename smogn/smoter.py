@@ -20,6 +20,7 @@ def smoter(
     drop_na_col = True,       ## auto drop columns with nan's (bool)
     drop_na_row = True,       ## auto drop rows with nan's (bool)
     replace = False,          ## sampling replacement (bool)
+    random_seed = None,       ## seed for random sampling (pos int or None)
     
     ## phi relevance function arguments / inputs
     rel_thres = 0.5,          ## relevance threshold considered rare (pos real)
@@ -83,6 +84,10 @@ def smoter(
     Proceedings of Machine Learning Research, 74:36-50.
     http://proceedings.mlr.press/v74/branco17a/branco17a.pdf.
     """
+    
+    ## set random seed 
+    if random_seed:
+        np.random.seed(seed = random_seed)
     
     ## pre-process missing values
     if bool(drop_na_col) == True:

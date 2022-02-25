@@ -85,10 +85,6 @@ def smoter(
     http://proceedings.mlr.press/v74/branco17a/branco17a.pdf.
     """
     
-    ## set random seed 
-    if random_seed:
-        np.random.seed(seed = random_seed)
-    
     ## pre-process missing values
     if bool(drop_na_col) == True:
         data = data.dropna(axis = 1)  ## drop columns with nan's
@@ -257,6 +253,10 @@ def smoter(
         ## under-sampling
         if under_samp is True:
             if s_perc[i] < 1:
+                
+                ## set random seed 
+                if random_seed:
+                    np.random.seed(seed = random_seed)
                 
                 ## drop observations in training set
                 ## considered 'normal' (not 'rare')

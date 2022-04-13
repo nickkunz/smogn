@@ -17,7 +17,7 @@ def over_sampling(
     perc,               ## over / under sampling
     pert,               ## perturbation / noise percentage
     k,                  ## num of neighs for over-sampling
-    random_seed = None  ## random seed for sampling (pos int or None)
+    seed = None         ## random seed for sampling (pos int or None)
     ):
     
     """
@@ -222,8 +222,8 @@ def over_sampling(
     n_synth = int(n * (perc - 1 - x_synth))
     
     ## set random seed 
-    if random_seed:
-        np.random.seed(seed = random_seed)
+    if seed:
+        np.random.seed(seed = seed)
     
     ## randomly index data by the number of new synthetic observations
     r_index = np.random.choice(
@@ -246,8 +246,8 @@ def over_sampling(
             for j in range(x_synth):
                 
                 ## set random seed 
-                if random_seed:
-                    np.random.seed(seed = random_seed)
+                if seed:
+                    np.random.seed(seed = seed)
                 
                 ## randomly select a k nearest neighbor
                 neigh = int(np.random.choice(
@@ -258,8 +258,8 @@ def over_sampling(
                 ## technique for regression (smoter)
                 if neigh in safe_list:
                     ## set random seed
-                    if random_seed:
-                        rd.seed(a = random_seed)
+                    if seed:
+                        rd.seed(a = seed)
                     
                     diffs = data.iloc[
                         knn_matrix[i, neigh], 0:(d - 1)] - data.iloc[
@@ -271,8 +271,8 @@ def over_sampling(
                     ## observed cases and selected neighbors
                     for x in feat_list_nom:
                          ## set random seed
-                        if random_seed:
-                            rd.seed(a = random_seed)
+                        if seed:
+                            rd.seed(a = seed)
                             
                         synth_matrix[i * x_synth + j, x] = [data.iloc[
                             knn_matrix[i, neigh], x], data.iloc[
@@ -321,8 +321,8 @@ def over_sampling(
                             synth_matrix[index_gaus, x] = None
                         else:
                             ## set random seed 
-                            if random_seed:
-                                np.random.seed(seed = random_seed)
+                            if seed:
+                                np.random.seed(seed = seed)
                     
                             synth_matrix[index_gaus, x] = data.iloc[
                                 i, x] + float(np.random.normal(
@@ -344,8 +344,8 @@ def over_sampling(
                                             np.where(data.iloc[
                                                 :, x] == data.iloc[:, x][z]))
                                      ## set random seed
-                                    if random_seed:
-                                        rd.seed(a = random_seed)
+                                    if seed:
+                                        rd.seed(a = seed)
                         
                                     synth_matrix[index_gaus, x] = rd.choices(
                                         population = data.iloc[:, x].unique(), 
@@ -362,8 +362,8 @@ def over_sampling(
                 dist_matrix[i, knn_matrix[i]] < max_dist[i])[0]
             
             ## set random seed 
-            if random_seed:
-                np.random.seed(seed = random_seed)
+            if seed:
+                np.random.seed(seed = seed)
             
             ## randomly select a k nearest neighbor
             neigh = int(np.random.choice(
@@ -374,8 +374,8 @@ def over_sampling(
             ## technique for regression (smoter)
             if neigh in safe_list:
                 ##  set random seed
-                if random_seed:
-                    rd.seed(a = random_seed)
+                if seed:
+                    rd.seed(a = seed)
                 
                 diffs = data.iloc[
                     knn_matrix[i, neigh], 0:(d - 1)] - data.iloc[i, 0:(d - 1)]
@@ -386,8 +386,8 @@ def over_sampling(
                 ## observed cases and selected neighbors
                 for x in feat_list_nom:
                      ## set random seed
-                    if random_seed:
-                        rd.seed(a = random_seed)
+                    if seed:
+                        rd.seed(a = seed)
                         
                     synth_matrix[x_synth * n + count, x] = [data.iloc[
                         knn_matrix[i, neigh], x], data.iloc[
@@ -431,8 +431,8 @@ def over_sampling(
                         synth_matrix[x_synth * n + count, x] = None
                     else:
                         ## set random seed 
-                        if random_seed:
-                            np.random.seed(seed = random_seed)
+                        if seed:
+                            np.random.seed(seed = seed)
                             
                         synth_matrix[x_synth * n + count, x] = data.iloc[
                             i, x] + float(np.random.normal(
@@ -453,8 +453,8 @@ def over_sampling(
                                     )
                                 
                                 ## set random seed
-                                if random_seed:
-                                    rd.seed(a = random_seed)
+                                if seed:
+                                    rd.seed(a = seed)
                                 
                                 synth_matrix[
                                     x_synth * n + count, x] = rd.choices(

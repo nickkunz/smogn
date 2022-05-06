@@ -71,6 +71,19 @@ housing_smogn = smogn.smoter(
 
 SMOGN is open for improvements and maintenance. Your help is valued to make the package better for everyone.
 
+## Citations
+```
+@software{smogn,
+  author       = {Nicholas Kunz},
+  title        = {{SMOGN}: Synthetic Minority Over-Sampling Technique for Regression with Gaussian Noise},
+  year         = {2020},
+  publisher    = {PyPI},
+  version      = {v0.1.2},
+  url          = {https://pypi.org/project/smogn/},
+  copyright    = {GPL v3.0}
+}
+```
+
 ## Reference
 
 Branco, P., Torgo, L., Ribeiro, R. (2017). SMOGN: A Pre-Processing Approach for Imbalanced Regression. Proceedings of Machine Learning Research, 74:36-50. http://proceedings.mlr.press/v74/branco17a/branco17a.pdf.

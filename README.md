@@ -65,7 +65,7 @@ housing_smogn = smogn.smoter(
 
 ## License
 
-© Nick Kunz, 2019. Licensed under the General Public License v3.0 (GPLv3).
+© Nick Kunz, 2022. Licensed under the General Public License v3.0 (GPLv3).
 
 ## Contributions
 

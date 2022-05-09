@@ -11,7 +11,7 @@ setup(
     author_email = 'nick.kunz@columbia.edu',
     url = 'https://github.com/nickkunz/smogn',
     classifiers = [
-        
+
         'Programming Language :: Python :: 3',
         'Intended Audience :: Developers',
         'Intended Audience :: Science/Research',
@@ -34,6 +34,9 @@ setup(
     
     packages = ['smogn'],
     include_package_data = True,
+    extras_require={
+        "dev": ["pytest>=7.1"],
+    },
     install_requires = ['numpy', 'pandas', 'tqdm'],
     tests_require = ['nose'],
     test_suite = 'nose.collector'

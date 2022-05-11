@@ -38,6 +38,4 @@ setup(
         "dev": ["pytest>=7.1"],
     },
     install_requires = ['numpy', 'pandas', 'tqdm'],
-    tests_require = ['nose'],
-    test_suite = 'nose.collector'
 )

@@ -58,18 +58,15 @@ housing_smogn = smogn.smoter(
 )
 ```
 
-## Examples
+## Tutorials
 1. [Beginner](https://github.com/nickkunz/smogn/blob/master/examples/smogn_example_1_beg.ipynb) <br>
 2. [Intermediate](https://github.com/nickkunz/smogn/blob/master/examples/smogn_example_2_int.ipynb) <br>
 3. [Advanced](https://github.com/nickkunz/smogn/blob/master/examples/smogn_example_3_adv.ipynb) <br>
 
-## License
+## Applications
+1. de Santi, N. S., Rodrigues, N. V., Montero-Dorta, A. D., Abramo, L. R., Tucci, B., & Artale, M. C. (2022). Mimicking the Halo-Galaxy Connection Using Machine Learning. arXiv preprint:2201.06054. https://arxiv.org/abs/2201.06054. 
 
-© Nick Kunz, 2022. Licensed under the General Public License v3.0 (GPLv3).
-
-## Contributions
-
-SMOGN is open for improvements and maintenance. Your help is valued to make the package better for everyone.
+2. Gangapurwala, S., Geisert, M., Orsolino, R., Fallon, M., & Havoutis, I. (2022). RLOC: Terrain-Aware Legged Locomotion Using Reinforcement Learning and Optimal Control. arXiv preprint:2201.06054. https://arxiv.org/abs/2012.03094.pdf. 
 
 ## Citations
 ```
@@ -83,6 +80,13 @@ SMOGN is open for improvements and maintenance. Your help is valued to make the 
   copyright    = {GPL v3.0}
 }
 ```
+## Contributions
+
+SMOGN is open for improvements and maintenance. Your help is valued to make the package better for everyone.
+
+## License
+
+© Nick Kunz, 2022. Licensed under the General Public License v3.0 (GPLv3).
 
 ## Reference
 

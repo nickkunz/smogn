@@ -81,7 +81,8 @@ housing_smogn = smogn.smoter(
 ## Development
 
 - Clone this repo and `cd` to it.
-- `make dev` to install the package locally + development dependencies
+- `make dev` to install dependencies, development dependencies, and to install
+  the package locally.
 - `make test` to run pytest tests located in `tests/`
 
 ## Examples

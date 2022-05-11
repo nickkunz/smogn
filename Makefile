@@ -8,4 +8,5 @@ test:
 .PHONY: dev
 
 dev:
+	pip install -r ./requirements.txt \
 	pip -e .[dev]

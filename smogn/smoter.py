@@ -20,6 +20,7 @@ def smoter(
     drop_na_col = True,       ## auto drop columns with nan's (bool)
     drop_na_row = True,       ## auto drop rows with nan's (bool)
     replace = False,          ## sampling replacement (bool)
+    seed = None,              ## seed for random sampling (pos int or None)
     
     ## phi relevance function arguments / inputs
     rel_thres = 0.5,          ## relevance threshold considered rare (pos real)
@@ -252,6 +253,10 @@ def smoter(
         ## under-sampling
         if under_samp is True:
             if s_perc[i] < 1:
+                
+                ## set random seed 
+                if seed:
+                    np.random.seed(seed = seed)
                 
                 ## drop observations in training set
                 ## considered 'normal' (not 'rare')

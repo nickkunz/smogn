@@ -58,7 +58,7 @@ housing_smogn = smogn.smoter(
 )
 ```
 
-## Tutorials
+## Examples
 1. [Beginner](https://github.com/nickkunz/smogn/blob/master/examples/smogn_example_1_beg.ipynb) <br>
 2. [Intermediate](https://github.com/nickkunz/smogn/blob/master/examples/smogn_example_2_int.ipynb) <br>
 3. [Advanced](https://github.com/nickkunz/smogn/blob/master/examples/smogn_example_3_adv.ipynb) <br>

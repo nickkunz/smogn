@@ -85,3 +85,7 @@ SMOGN-0.1.1: 2020-03-23
 SMOGN-0.1.2: 2020-04-03
 ==========================
 - Fix input error handling
+
+SMOGN-0.1.3: 2022-06-14
+==========================
+- Add random seed param

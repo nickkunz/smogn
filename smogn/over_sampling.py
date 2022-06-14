@@ -85,7 +85,7 @@ def over_sampling(
     num_dtypes = ["int64", "float64"]
     
     for j in range(d):
-        if data.iloc[:, j].dtype in num_dtypes and any(data.iloc[:, j] > 0):
+        if data.iloc[:, j].dtype in num_dtypes and all(data.iloc[:, j] > 0):
             feat_non_neg.append(j)
     
     ## find features without variation (constant features)
@@ -280,7 +280,7 @@ def over_sampling(
                     
                     ## generate synthetic y response variable by
                     ## inverse distance weighted
-                    for z in feat_list_num:
+                    for z in feat_list_num[0:(d - 1)]:
                         a = abs(data.iloc[i, z] - synth_matrix[
                             i * x_synth + j, z]) / feat_ranges[z]
                         b = abs(data.iloc[knn_matrix[
@@ -297,8 +297,8 @@ def over_sampling(
                     
                     if a == b:
                         synth_matrix[i * x_synth + j, 
-                            (d - 1)] = data.iloc[i, (d - 1)] + data.iloc[
-                            knn_matrix[i, neigh], (d - 1)] / 2
+                            (d - 1)] = (data.iloc[i, (d - 1)] + data.iloc[
+                            knn_matrix[i, neigh], (d - 1)]) / 2
                     else:
                         synth_matrix[i * x_synth + j, 
                             (d - 1)] = (b * data.iloc[
@@ -395,7 +395,7 @@ def over_sampling(
                 
                 ## generate synthetic y response variable by
                 ## inverse distance weighted
-                for z in feat_list_num:
+                for z in feat_list_num[0:(d - 1)]:
                     a = abs(data.iloc[i, z] - synth_matrix[
                         x_synth * n + count, z]) / feat_ranges[z]
                     b = abs(data.iloc[knn_matrix[i, neigh], z] - synth_matrix[
@@ -409,9 +409,9 @@ def over_sampling(
                         x_synth * n + count, feat_list_nom])
                 
                 if a == b:
-                    synth_matrix[x_synth * n + count, (d - 1)] = data.iloc[
+                    synth_matrix[x_synth * n + count, (d - 1)] = (data.iloc[
                         i, (d - 1)] + data.iloc[
-                        knn_matrix[i, neigh], (d - 1)] / 2
+                        knn_matrix[i, neigh], (d - 1)]) / 2
                 else:
                     synth_matrix[x_synth * n + count, (d - 1)] = (b * data.iloc[
                         i, (d - 1)] + a * data.iloc[

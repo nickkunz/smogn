@@ -66,7 +66,9 @@ housing_smogn = smogn.smoter(
 ## Applications
 1. de Santi, N. S., Rodrigues, N. V., Montero-Dorta, A. D., Abramo, L. R., Tucci, B., & Artale, M. C. (2022). Mimicking the Halo-Galaxy Connection Using Machine Learning. arXiv preprint:2201.06054. https://arxiv.org/abs/2201.06054. 
 
-2. Gangapurwala, S., Geisert, M., Orsolino, R., Fallon, M., & Havoutis, I. (2022). RLOC: Terrain-Aware Legged Locomotion Using Reinforcement Learning and Optimal Control. arXiv preprint:2201.03094. https://arxiv.org/abs/2012.03094. 
+2. Gangapurwala, S., Geisert, M., Orsolino, R., Fallon, M., & Havoutis, I. (2022). RLOC: Terrain-Aware Legged Locomotion Using Reinforcement Learning and Optimal Control. arXiv preprint:2201.03094. https://arxiv.org/abs/2012.03094.
+
+3. Agrawal,A., Petersen, M.R. (2021). Detecting Arsenic Contamination Using Satellite Imagery and Machine Learning. Toxics 2021, 9, 333. https://doi.org/10.3390/toxics9120333.
 
 ## Citations
 ```

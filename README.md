@@ -63,13 +63,34 @@ housing_smogn = smogn.smoter(
 2. [Intermediate](https://github.com/nickkunz/smogn/blob/master/examples/smogn_example_2_int.ipynb) <br>
 3. [Advanced](https://github.com/nickkunz/smogn/blob/master/examples/smogn_example_3_adv.ipynb) <br>
 
-## License
+## Applications
+1. de Santi, N. S., Rodrigues, N. V., Montero-Dorta, A. D., Abramo, L. R., Tucci, B., & Artale, M. C. (2022). Mimicking the Halo-Galaxy Connection Using Machine Learning. arXiv preprint:2201.06054. https://arxiv.org/abs/2201.06054. 
 
-© Nick Kunz, 2019. Licensed under the General Public License v3.0 (GPLv3).
+2. Gangapurwala, S., Geisert, M., Orsolino, R., Fallon, M., & Havoutis, I. (2022). RLOC: Terrain-Aware Legged Locomotion Using Reinforcement Learning and Optimal Control. arXiv preprint:2201.03094. https://arxiv.org/abs/2012.03094.
 
+3. Wang, B., Spessa, A., Feng, P., Hou, X., Yue, C., Luo, J.-J., Ciais, P., Waters, C., Cowie, A., Nolan, R. H., Nikonovas, T., Jin, H., Walshaw, H., Wei, J., Guo, X., Liu, D. L., & Yu, Q. (2021). Extreme Fire Weather Is The Major Driver Of Severe Bushfires In Southeast Australia. Science Bulletin, 67(6), 655-664. https://doi.org/10.1016/j.scib.2021.10.001. 
+
+4. Agrawal, A., & Petersen, M. R. (2021). Detecting Arsenic Contamination Using Satellite Imagery and Machine Learning. Toxics, 9(12), 333. https://doi.org/10.3390/toxics9120333.
+
+## Citations
+```
+@software{smogn,
+  author       = {Nicholas Kunz},
+  title        = {{SMOGN}: Synthetic Minority Over-Sampling Technique for Regression with Gaussian Noise},
+  year         = {2020},
+  publisher    = {PyPI},
+  version      = {v0.1.2},
+  url          = {https://pypi.org/project/smogn/},
+  copyright    = {GPL v3.0}
+}
+```
 ## Contributions
 
 SMOGN is open for improvements and maintenance. Your help is valued to make the package better for everyone.
+
+## License
+
+© Nick Kunz, 2022. Licensed under the General Public License v3.0 (GPLv3).
 
 ## Reference
 

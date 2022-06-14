@@ -68,7 +68,9 @@ housing_smogn = smogn.smoter(
 
 2. Gangapurwala, S., Geisert, M., Orsolino, R., Fallon, M., & Havoutis, I. (2022). RLOC: Terrain-Aware Legged Locomotion Using Reinforcement Learning and Optimal Control. arXiv preprint:2201.03094. https://arxiv.org/abs/2012.03094.
 
-3. Agrawal,A., Petersen, M.R. (2021). Detecting Arsenic Contamination Using Satellite Imagery and Machine Learning. Toxics 2021, 9, 333. https://doi.org/10.3390/toxics9120333.
+3. Wang, B., Spessa, A., Feng, P., Hou, X., Yue, C., Luo, J.-J., Ciais, P., Waters, C., Cowie, A., Nolan, R. H., Nikonovas, T., Jin, H., Walshaw, H., Wei, J., Guo, X., Liu, D. L., & Yu, Q. (2021). Extreme Fire Weather Is The Major Driver Of Severe Bushfires In Southeast Australia. Science Bulletin, 67(6), 655-664. https://doi.org/10.1016/j.scib.2021.10.001. 
+
+4. Agrawal, A., & Petersen, M. R. (2021). Detecting Arsenic Contamination Using Satellite Imagery and Machine Learning. Toxics, 9(12), 333. https://doi.org/10.3390/toxics9120333.
 
 ## Citations
 ```

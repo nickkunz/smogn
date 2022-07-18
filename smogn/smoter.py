@@ -174,11 +174,11 @@ def smoter(
     )
     
     ## phi relevance quality check
-    if all(i == 0 for i in y_phi):
-        raise ValueError("redefine phi relevance function: all points are 1")
+    #if all(i == 0 for i in y_phi):
+    #    raise ValueError("redefine phi relevance function: all points are 1")
     
-    if all(i == 1 for i in y_phi):
-        raise ValueError("redefine phi relevance function: all points are 0")
+    #if all(i == 1 for i in y_phi):
+    #    raise ValueError("redefine phi relevance function: all points are 0")
     ## ---------------------------------------------------------------------- ##
     
     ## determine bin (rare or normal) by bump classification

@@ -21,6 +21,8 @@ def smoter(
     drop_na_row = True,       ## auto drop rows with nan's (bool)
     replace = False,          ## sampling replacement (bool)
     seed = None,              ## seed for random sampling (pos int or None)
+    metric = None,            ## distance metrics (scipy.spatial.distance) + 'HEOM' & 'HVDM'
+    metric_args = None,       ## extra arguments to distance metric (dict)
     
     ## phi relevance function arguments / inputs
     rel_thres = 0.5,          ## relevance threshold considered rare (pos real)
@@ -243,7 +245,9 @@ def smoter(
                 index = list(b_index[i].index),
                 perc = s_perc[i],
                 pert = pert,
-                k = k
+                k = k,
+                metric = metric,
+                metric_args = metric_args
             )
             
             ## concatenate over-sampling

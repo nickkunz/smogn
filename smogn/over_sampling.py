@@ -3,10 +3,12 @@ import numpy as np
 import pandas as pd
 import random as rd
 from tqdm import tqdm
+from scipy.spatial import distance
 
 ## load dependencies - internal
 from smogn.box_plot_stats import box_plot_stats
-from smogn.dist_metrics import euclidean_dist, heom_dist, overlap_dist
+from smogn.HEOM import HEOM
+from smogn.HVDM import HVDM
 
 ## generate synthetic observations
 def over_sampling(
@@ -17,7 +19,9 @@ def over_sampling(
     perc,               ## over / under sampling
     pert,               ## perturbation / noise percentage
     k,                  ## num of neighs for over-sampling
-    seed = None         ## random seed for sampling (pos int or None)
+    seed = None,        ## random seed for sampling (pos int or None)
+    metric,             ## distance metric for numeric vector
+    metric_args         ## extra arguments to distance metric 
     ):
     
     """
@@ -156,48 +160,65 @@ def over_sampling(
     feat_count_num = len(feat_list_num)
     feat_count_nom = len(feat_list_nom)
     
-    ## calculate distance between observations based on data types
-    ## store results over null distance matrix of n x n
-    dist_matrix = np.ndarray(shape = (n, n))
+    ## Convert data to numpy arrays for distance calculations
+    data_h = np.array(data)
+    data_num = np.array(data_num)
+    data_nom = np.array(data_nom)
+
+    ## make lists of available metrics for each case
+    vec_metrics = ["braycurtis", "canberra", "chebyshev", "cityblock",
+                   "correlation", "cosine", "euclidean", "jensenshannon",
+                   "mahalanobis","matching", "minkowski", "seuclidean",
+                   "sqeuclidean", "wminkowski"]
+
+    catg_metrics = ["dice", "hamming", "jaccard", "kulsinski", "rogerstanimoto",
+                    "russellrao", "sokalmichener", "sokalsneath", "yule"]
+
+    hetro_metrics = ["HEOM", "HVDM"]
     
+    ## calculate distance matrix based on selected metric and data types
+    ## Numeric data types only
+    if feat_count_nom == 0:
+
+        if metric not in vec_metrics:
+            metric = "euclidean"
+            print("Defaulting to euclidean metric for numeric only data")
+
+        if metric_args is None:
+            dist_matrix = distance.cdist(data_num, data_num, metric=metric)
+        else:
+            dist_matrix = distance.cdist(data_num, data_num, metric=metric,
+                                         **metric_args)
+
+    ## Catagorical data types only
+    elif feat_count_num == 0:
+
+        if metric not in catg_metrics:
+            metric = "hamming"
+            print("Defaulting to hamming metric for catagorical only data")
+
+        if metric_args is None:
+            dist_matrix = distance.cdist(data_nom, data_nom, metric=metric)
+        else:
+            dist_matrix = distance.cdist(data_nom, data_nom, metric=metric,
+                                         **metric_args)
+
+    ## Heterogeneous data types
+    else:
+        if metric not in hetro_metrics:
+            metric = "HEOM"
+            print("Defaulting to HEOM metric for heterogeneous data")
+
+        if metric=="HEOM":
+            heom_metric = HEOM(data_h, feat_list_nom)
+            dist_matrix = distance.cdist(data_h, data_h, metric=heom_metric.heom)
+            
+        else:
+            heom_metric = HVDM(data_h, data_h.shape[1]-1, feat_list_nom)
+            dist_matrix = distance.cdist(data_h, data_h, metric=heom_metric.hvdm)
+            
     for i in tqdm(range(n), ascii = True, desc = "dist_matrix"):
-        for j in range(n):
-            
-            ## utilize euclidean distance given that 
-            ## data is all numeric / continuous
-            if feat_count_nom == 0:
-                dist_matrix[i][j] = euclidean_dist(
-                    a = data_num.iloc[i],
-                    b = data_num.iloc[j],
-                    d = feat_count_num
-                )
-            
-            ## utilize heom distance given that 
-            ## data contains both numeric / continuous 
-            ## and nominal / categorical
-            if feat_count_nom > 0 and feat_count_num > 0:
-                dist_matrix[i][j] = heom_dist(
-                    
-                    ## numeric inputs
-                    a_num = data_num.iloc[i],
-                    b_num = data_num.iloc[j],
-                    d_num = feat_count_num,
-                    ranges_num = feat_ranges_num,
-                    
-                    ## nominal inputs
-                    a_nom = data_nom.iloc[i],
-                    b_nom = data_nom.iloc[j],
-                    d_nom = feat_count_nom
-                )
-            
-            ## utilize hamming distance given that 
-            ## data is all nominal / categorical
-            if feat_count_num == 0:
-                dist_matrix[i][j] = overlap_dist(
-                    a = data_nom.iloc[i],
-                    b = data_nom.iloc[j],
-                    d = feat_count_nom
-                )
+        continue
     
     ## determine indicies of k nearest neighbors
     ## and convert knn index list to matrix

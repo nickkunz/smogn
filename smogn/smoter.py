@@ -243,7 +243,8 @@ def smoter(
                 index = list(b_index[i].index),
                 perc = s_perc[i],
                 pert = pert,
-                k = k
+                k = k,
+                seed = seed
             )
             
             ## concatenate over-sampling

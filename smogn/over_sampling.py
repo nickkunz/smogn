@@ -4,9 +4,12 @@ import pandas as pd
 import random as rd
 from tqdm import tqdm
 
+import sys
+sys.path.append(".")
+
 ## load dependencies - internal
-from smogn.box_plot_stats import box_plot_stats
-from smogn.dist_metrics import euclidean_dist, heom_dist, overlap_dist
+from box_plot_stats import box_plot_stats
+from dist_metrics import euclidean_dist, heom_dist, overlap_dist
 
 ## generate synthetic observations
 def over_sampling(

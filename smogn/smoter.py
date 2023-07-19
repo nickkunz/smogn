@@ -2,17 +2,20 @@
 import numpy as np
 import pandas as pd
 
+import sys
+sys.path.append(".")
+
 ## load dependencies - internal
-from smogn.phi import phi
-from smogn.phi_ctrl_pts import phi_ctrl_pts
-from smogn.over_sampling import over_sampling
+from phi import phi
+from phi_ctrl_pts import phi_ctrl_pts
+from over_sampling import over_sampling
 
 ## synthetic minority over-sampling technique for regression with gaussian noise 
 def smoter(
     
     ## main arguments / inputs
-    data,                     ## training set (pandas dataframe)
-    y,                        ## response variable y by name (string)
+    X,                        ## feature variable X (numpy array)
+    y,                        ## response variable y (numpy array)
     k = 5,                    ## num of neighs for over-sampling (pos int)
     pert = 0.02,              ## perturbation / noise percentage (pos real)
     samp_method = "balance",  ## over / under sampling ("balance" or extreme")
@@ -84,6 +87,9 @@ def smoter(
     Proceedings of Machine Learning Research, 74:36-50.
     http://proceedings.mlr.press/v74/branco17a/branco17a.pdf.
     """
+
+    # combine X and y into one numpy array
+    data = pd.DataFrame(np.concatenate((X, y), axis=1))
     
     ## pre-process missing values
     if bool(drop_na_col) == True:
@@ -97,12 +103,12 @@ def smoter(
         raise ValueError("cannot proceed: data cannot contain NaN values")
     
     ## quality check for y
-    if isinstance(y, str) is False:
-        raise ValueError("cannot proceed: y must be a string")
+    if isinstance(y, np.ndarray) is False:
+        raise ValueError("cannot proceed: y must be a numpy array")
     
-    if y in data.columns.values is False:
-        raise ValueError("cannot proceed: y must be an header name (string) \
-               found in the dataframe")
+    # if y in data.columns.values is False:
+    #     raise ValueError("cannot proceed: y must be an header name (string) \
+    #            found in the dataframe")
     
     ## quality check for k number specification
     if k > len(data):
@@ -125,8 +131,8 @@ def smoter(
         raise ValueError("rel_thres must be a real number number: 0 < R < 1")
     
     ## store data dimensions
-    n = len(data)
-    d = len(data.columns)
+    n = X.shape[0]
+    d = X.shape[1] + 1
     
     ## store original data types
     feat_dtypes_orig = [None] * d
@@ -134,24 +140,29 @@ def smoter(
     for j in range(d):
         feat_dtypes_orig[j] = data.iloc[:, j].dtype
     
-    ## determine column position for response variable y
-    y_col = data.columns.get_loc(y)
+    # ## determine column position for response variable y
+    # y_col = data.columns.get_loc(y)
+
+    y_col = d - 1
     
-    ## move response variable y to last column
-    if y_col < d - 1:
-        cols = list(range(d))
-        cols[y_col], cols[d - 1] = cols[d - 1], cols[y_col]
-        data = data[data.columns[cols]]
+    # ## move response variable y to last column
+    # if y_col < d - 1:
+    #     cols = list(range(d))
+    #     cols[y_col], cols[d - 1] = cols[d - 1], cols[y_col]
+    #     data = data[data.columns[cols]]
     
     ## store original feature headers and
     ## encode feature headers to index position
     feat_names = list(data.columns)
+    # feat_idx = list(range(data.shape[1]))
     data.columns = range(d)
     
     ## sort response variable y by ascending order
     y = pd.DataFrame(data[d - 1])
     y_sort = y.sort_values(by = d - 1)
     y_sort = y_sort[d - 1]
+
+    print(y_sort.shape)
     
     ## -------------------------------- phi --------------------------------- ##
     ## calculate parameters for phi relevance function
@@ -289,4 +300,4 @@ def smoter(
         data_new.iloc[:, j] = data_new.iloc[:, j].astype(feat_dtypes_orig[j])
     
     ## return modified training set
-    return data_new
+    return np.array(data_new.iloc[:, :-1]), np.array(data_new.iloc[:, -1])

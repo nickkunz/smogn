@@ -46,7 +46,7 @@ def heom_dist(a_num, b_num, d_num, ranges_num, a_nom, b_nom, d_nom):
     # import numpy as np
     
     ## create list to store distances
-    dist = [None] * d_num
+    dist = [None] * (d_num + d_nom)
     
     ## specify epsilon
     eps = 1e-30
@@ -70,11 +70,11 @@ def heom_dist(a_num, b_num, d_num, ranges_num, a_nom, b_nom, d_nom):
         ## distance equals 0 for values that are equal
         ## in two vectors a and b of equal length
         if a_nom.iloc[i] == b_nom.iloc[i]:
-            dist[i] = 0
+            dist[d_num + i] = 0
         
         ## distance equals 1 for values that are not equal
         else:
-            dist[i] = 1
+            dist[d_num + i] = 1
         
         ## theoretically, hamming differences are squared when utilized
         ## within heom distance, however, procedurally not required, 
